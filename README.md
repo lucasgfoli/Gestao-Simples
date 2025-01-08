@@ -25,7 +25,7 @@ JavaScript:
 Lógica da aplicação, interações com a API e manipulação do DOM.
 API externa
 : API para a gestão de produtos (via fetch).
-Repositório no Replit: (https://574f960e-c244-4355-8367-ccc07e18e71e-00-3ud78sen3fz.riker.replit.dev/), o arquivo ZIP está anexado abaixo.
+Repositório no Replit: O arquivo ZIP está anexado abaixo.
 
 Este projeto está hospedado no Replit, uma plataforma de desenvolvimento online que permite criar e rodar aplicativos diretamente no navegador. O Replit facilita o gerenciamento de código, execução e compartilhamento de projetos de forma rápida e prática.
 
