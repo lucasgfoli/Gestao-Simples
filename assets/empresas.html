@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,6 @@
             const closeBtn = document.getElementById('close-btn');
             const sidebar = document.getElementById('sidebar');
 
-            // Toggle do menu
             menuBtn.addEventListener('click', () => {
                 sidebar.style.left = '0';
                 menuBtn.classList.add('hidden');
@@ -22,73 +22,58 @@
                 menuBtn.classList.remove('hidden');
             });
 
-            // Função para carregar empresas da API
             async function carregarEmpresas() {
-                try {
-                    const resposta = await fetch('https://574f960e-c244-4355-8367-ccc07e18e71e-00-3ud78sen3fz.riker.replit.dev/empresas');
-                    const empresas = await resposta.json();
+                const resposta = await fetch('https://574f960e-c244-4355-8367-ccc07e18e71e-00-3ud78sen3fz.riker.replit.dev/empresas');
+                const empresas = await resposta.json();
 
-                    const listaEmpresas = document.getElementById('lista-empresas');
-                    listaEmpresas.innerHTML = '';
+                const listaEmpresas = document.getElementById('lista-empresas');
+                listaEmpresas.innerHTML = '';
 
-                    empresas.forEach(empresa => {
-                        const li = document.createElement('li');
-                        li.setAttribute('data-id', empresa.id);
-                        li.textContent = `${empresa.name} - ${empresa.cnpj}`;
+                empresas.forEach(empresa => {
+                    const li = document.createElement('li');
+                    li.setAttribute('data-id', empresa.id);
+                    li.textContent = `${empresa.name} - ${empresa.cnpj}`;
 
-                        const updateBtn = document.createElement('button');
-                        updateBtn.textContent = 'Atualizar';
-                        updateBtn.classList.add('update-btn');
+                    const updateBtn = document.createElement('button');
+                    updateBtn.textContent = 'Atualizar';
+                    updateBtn.classList.add('update-btn');
 
-                        const deleteBtn = document.createElement('button');
-                        deleteBtn.textContent = 'Deletar';
-                        deleteBtn.classList.add('delete-btn');
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Deletar';
+                    deleteBtn.classList.add('delete-btn');
 
-                        // Atualizar
-                        updateBtn.addEventListener('click', () => {
-                            window.location.href = `editarEmpresa.html?id=${empresa.id}`;
-                        });
-
-                        // Deletar empresa
-                        deleteBtn.addEventListener('click', () => deletarEmpresa(empresa.id, li));
-
-                        li.appendChild(updateBtn);
-                        li.appendChild(deleteBtn);
-
-                        listaEmpresas.appendChild(li);
+                    updateBtn.addEventListener('click', () => {
+                        window.location.href = `editarEmpresa.html?id=${empresa.id}`;
                     });
-                } catch (error) {
-                    alert('Erro ao carregar empresas!');
-                }
+
+                    deleteBtn.addEventListener('click', () => deletarEmpresa(empresa.id, li));
+
+                    li.appendChild(updateBtn);
+                    li.appendChild(deleteBtn);
+
+                    listaEmpresas.appendChild(li);
+                });
             }
 
-            // Função para deletar empresa
             async function deletarEmpresa(id, li) {
-                if (!confirm('Tem certeza que deseja deletar esta empresa?')) return;
-
-                try {
-                    const resposta = await fetch(`https://574f960e-c244-4355-8367-ccc07e18e71e-00-3ud78sen3fz.riker.replit.dev/empresas/${id}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    });
-
-                    if (resposta.ok) {
-                        alert('Empresa deletada com sucesso!');
-                        li.remove();
-                    } else {
-                        alert('Erro ao deletar empresa.');
+                const resposta = await fetch(`https://574f960e-c244-4355-8367-ccc07e18e71e-00-3ud78sen3fz.riker.replit.dev/empresas/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
                     }
-                } catch (error) {
-                    alert('Erro na conexão ao tentar deletar a empresa.');
+                });
+
+                if (resposta.ok) {
+                    alert('Empresa deletada com sucesso!');
+                    li.remove();
+                } else {
+                    alert('Erro ao deletar empresa.');
                 }
             }
 
             carregarEmpresas();
         });
     </script>
-
     <style>
         .menu-btn {
             position: absolute;
@@ -109,81 +94,3 @@
             height: 100%;
             background-color: #66927E;
             color: #fff;
-            transition: left 0.3s ease-in-out;
-            padding: 20px;
-            z-index: 1200;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin: 10px 0;
-        }
-
-        .buttons-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        .update-btn, .delete-btn {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .delete-btn {
-            background-color: #f44336;
-        }
-
-        .update-btn:hover, .delete-btn:hover {
-            opacity: 0.8;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <button id="menu-btn" class="menu-btn">☰</button>
-
-        <div id="sidebar" class="sidebar">
-            <button id="close-btn" class="close-btn">×</button>
-            <ul>
-                <li><a href="empresas.html">Empresas e Filiais</a></li>
-                <li><a href="fornecedores.html">Fornecedores</a></li>
-                <li><a href="telaPagamento.html">Adicionar pagamento</a></li>
-                <li><a href="produtos.html">Comprar produtos</a></li>
-            </ul>
-        </div>
-
-        <div class="cabecalho">
-            <h1>Empresas e Filiais</h1>
-            <button>
-                <a href="NovoCadastro.html" class="add-button">+</a>
-            </button>
-        </div>
-
-        <div class="empresas">
-            <ul id="lista-empresas">
-                <!-- Lista de empresas será preenchida via JavaScript -->
-            </ul>
-        </div>
-    </div>
-</body>
-</html>
