@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Cadastro</title>
-    <link rel="stylesheet" href="/assets/css/novoCadastro.css">
+    <link rel="stylesheet" href="/public/css/cadastroEmpresa.css">
 
     <script>
-
         function mascaraCNPJ(cnpj) {
             cnpj = cnpj.replace(/\D/g, "");
             cnpj = cnpj.replace(/^(\d{2})(\d)/, "$1.$2");
@@ -24,11 +23,14 @@
 
         function mascaraTelefone(telefone) {
             telefone = telefone.replace(/\D/g, "");
+
             if (telefone.length <= 10) {
                 telefone = telefone.replace(/^(\d{2})(\d{4})(\d{4})$/, "($1) $2-$3");
-            } else {
+            }
+            else {
                 telefone = telefone.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
             }
+
             return telefone;
         }
 
@@ -42,7 +44,7 @@
 
             const name = document.getElementById('name').value;
             const cnpj = document.getElementById('cnpj').value;
-            const address = document.getElementById('address').value; // Corrigido para 'address'
+            const address = document.getElementById('adress').value;
             const telefone = document.getElementById('telefone').value;
 
             const novaEmpresa = {
@@ -62,7 +64,7 @@
 
             if (resposta.ok) {
                 alert('Empresa cadastrada com sucesso!');
-                window.location.href = 'empresas.html'; // Redireciona para a página de empresas
+                window.location.href = 'empresas.html';
             } else {
                 alert('Erro ao cadastrar empresa.');
             }
@@ -85,15 +87,17 @@
                 </div>
             
                 <div class="input-box">
-                    <input id="address" type="text" name="address" placeholder="Digite o seu Endereço" required> <!-- Corrigido para 'address' -->
+                    <input id="adress" type="text" name="adress" placeholder="Digite o seu Endereço" required>
                 </div>
 
                 <div class="input-box">
-                    <input type="tel" id="telefone" name="telefone" placeholder="Digite o seu número de telefone" maxlength="15" oninput="formatarTelefone(event)" required>
+                     <input type="tel" id="telefone" name="telefone" placeholder="Digite o seu número de telefone" maxlength="15" oninput="formatarTelefone(event)" required>
                 </div>
 
                 <div class="button-container">
+
                     <button type="button" class="cancel-button" onclick="window.history.back()">Cancelar</button>
+
                     <button type="submit">Cadastrar</button>
                 </div>
             </div>
