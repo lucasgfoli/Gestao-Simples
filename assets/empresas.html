@@ -32,7 +32,7 @@
                 empresas.forEach(empresa => {
                     const li = document.createElement('li');
                     li.setAttribute('data-id', empresa.id);
-                    li.textContent = `${empresa.name} - ${empresa.cnpj}`;
+                    li.textContent = ${empresa.name} - ${empresa.cnpj};
 
                     const updateBtn = document.createElement('button');
                     updateBtn.textContent = 'Atualizar';
@@ -43,7 +43,7 @@
                     deleteBtn.classList.add('delete-btn');
 
                     updateBtn.addEventListener('click', () => {
-                        window.location.href = `editarEmpresa.html?id=${empresa.id}`;
+                        window.location.href = editarEmpresa.html?id=${empresa.id};
                     });
 
                     deleteBtn.addEventListener('click', () => deletarEmpresa(empresa.id, li));
@@ -56,7 +56,7 @@
             }
 
             async function deletarEmpresa(id, li) {
-                const resposta = await fetch(`https://574f960e-c244-4355-8367-ccc07e18e71e-00-3ud78sen3fz.riker.replit.dev/empresas/${id}`, {
+                const resposta = await fetch(https://574f960e-c244-4355-8367-ccc07e18e71e-00-3ud78sen3fz.riker.replit.dev/empresas/${id}, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -94,3 +94,86 @@
             height: 100%;
             background-color: #66927E;
             color: #fff;
+            transition: left 0.3s ease-in-out;
+            padding: 20px;
+            z-index: 1200;
+
+        }
+
+        .sidebar:after{
+            z-index: inherit;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <button id="menu-btn" class="menu-btn">☰</button>
+
+        <div id="sidebar" class="sidebar">
+            <button id="close-btn" class="close-btn">×</button>
+            <ul>
+                <li><a href="empresas.html">Empresas e Filiais</a></li>
+                <li><a href="fornecedores.html">Fornecedores</a></li>
+                <li><a href="telaPagamento.html">Adicionar pagamento</a></li>
+                <li><a href="produtos.html">Comprar produtos</a></li>
+            </ul>
+        </div>
+
+        <div class="cabecalho">
+            <h1>Empresas e Filiais</h1>
+            <button>
+                <a href="NovoCadastro.html" class="add-button">+</a>
+            </button>
+        </div>
+
+        <div class="empresas">
+            <ul id="lista-empresas">
+                <li>
+                    <span>Empresa ABC - 12.345.678/0001-99</span>
+                    <div class="buttons-container">
+                        <button class="update-btn">Atualizar</button>
+                        <button class="delete-btn">Deletar</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
