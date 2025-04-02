@@ -1,55 +1,58 @@
-Uso: 
+# Portal de Séries
 
+## 📌 Descrição
+Um portal de séries e filmes.
 
-Adicionar um produto:
-Clique no botão "Adicionar Produto" para adicionar um novo produto à lista.
+## 🎨 Tema
+- **Jekyll Theme:** `jekyll-theme-primer`
 
+## 🔌 Plugins Utilizados
+- `jekyll-seo-tag`
+- `jekyll-sitemap`
 
-Alterar a quantidade: 
-Use os botões "+" e "-" ao lado de cada produto para aumentar ou diminuir a quantidade.
+---
 
+# 🛍️ Uso
 
-Finalizar compra: 
+### ➕ Adicionar um Produto
+Clique no botão **"Adicionar Produto"** para adicionar um novo produto à lista.
 
-Clique no botão "Finalizar Compra" para ser redirecionado para a tela de pagamento.
+### 🔢 Alterar a Quantidade
+Use os botões **"+"** e **"-"** ao lado de cada produto para aumentar ou diminuir a quantidade.
 
+### 💳 Finalizar Compra
+Clique no botão **"Finalizar Compra"** para ser redirecionado para a tela de pagamento.
 
+---
 
-Tecnologias Usadas:
+# 🛠️ Tecnologias Usadas
 
-HTML5:
-Estrutura da página.
-CSS3:
-Estilização da página.
-JavaScript:
-Lógica da aplicação, interações com a API e manipulação do DOM.
-API externa
-: API para a gestão de produtos (via fetch).
-Repositório no Replit: O arquivo ZIP está anexado abaixo.
+- **HTML5** → Estrutura da página.
+- **CSS3** → Estilização da página.
+- **JavaScript** → Lógica da aplicação, interações com a API e manipulação do DOM.
+- **API Externa** → API para a gestão de produtos (via `fetch`).
 
-Este projeto está hospedado no Replit, uma plataforma de desenvolvimento online que permite criar e rodar aplicativos diretamente no navegador. O Replit facilita o gerenciamento de código, execução e compartilhamento de projetos de forma rápida e prática.
+---
 
-Você pode acessar o repositório do projeto diretamente no Replit e contribuir ou rodar o código diretamente na plataforma. O Replit também oferece a possibilidade de integrar com o GitHub, permitindo que você faça commits, push e pull entre o seu repositório local e o GitHub.
+# 📂 Repositório no Replit
 
-Se você deseja contribuir para o projeto, basta fazer um fork do repositório e enviar um pull request com suas modificações.
+Este projeto está hospedado no **Replit**, uma plataforma de desenvolvimento online que permite criar e rodar aplicativos diretamente no navegador.
 
-Contribuição:
+🔗 [Acesse o repositório no Replit](https://replit.com/@lucasgabrielfe2/GestaoSimplesdb)
 
-Sinta-se à vontade para contribuir para este projeto. Se você encontrou algum erro ou deseja adicionar uma funcionalidade, siga os passos abaixo:
+📁 **Download do Arquivo ZIP:** [(GestaoSimplesdb.zip)](https://github.com/user-attachments/files/18339981/GestaoSimplesdb.zip)
 
-Faça um fork deste repositório.
+O Replit facilita o gerenciamento de código, execução e compartilhamento de projetos de forma rápida e prática. Ele também permite integração com o **GitHub**, possibilitando commits, push e pull entre repositórios.
 
-Crie uma branch para a sua feature.
+---
 
-Faça commit das suas mudanças.
+# 🤝 Contribuição
 
-Copie o código.
+Sinta-se à vontade para contribuir para este projeto! Se encontrou algum erro ou deseja adicionar uma funcionalidade, siga os passos abaixo:
 
-Envie suas mudanças para o repositório remoto.
-
-Abra um pull request para o repositório original.
-
-[https://replit.com/@lucasgabrielfe2/GestaoSimplesdb]. 
-
-(https://github.com/user-attachments/files/18339981/GestaoSimplesdb.zip)
+1. **Faça um fork** deste repositório.
+2. **Crie uma branch** para a sua feature.
+3. **Faça commit** das suas mudanças.
+4. **Envie suas mudanças** para o repositório remoto.
+5. **Abra um pull request** para o repositório original.
 
